@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA47AD0626EBCF7C0032D1D8 /* LoginViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA47AD0526EBCF7C0032D1D8 /* LoginViewPresenter.swift */; };
+		EA47AD0826EBD1A20032D1D8 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA47AD0726EBD1A20032D1D8 /* NetworkService.swift */; };
 		EAB429FE26E3D5830035FDB7 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB429FD26E3D5830035FDB7 /* UserInfoViewController.swift */; };
 		EAC1D4EF26E3BE6900EA2E86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC1D4EE26E3BE6900EA2E86 /* AppDelegate.swift */; };
 		EAC1D4F126E3BE6900EA2E86 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC1D4F026E3BE6900EA2E86 /* SceneDelegate.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EA47AD0526EBCF7C0032D1D8 /* LoginViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewPresenter.swift; sourceTree = "<group>"; };
+		EA47AD0726EBD1A20032D1D8 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		EAB429FD26E3D5830035FDB7 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		EAC1D4EB26E3BE6900EA2E86 /* Swifty-companion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swifty-companion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAC1D4EE26E3BE6900EA2E86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +41,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EA47AD0226EBCF350032D1D8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EAC1D4F226E3BE6900EA2E86 /* LoginViewController.swift */,
+				EAB429FD26E3D5830035FDB7 /* UserInfoViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EA47AD0326EBCF470032D1D8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EAC1D4F926E3BE6B00EA2E86 /* LaunchScreen.storyboard */,
+				EAC1D4F726E3BE6B00EA2E86 /* Assets.xcassets */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EA47AD0426EBCF590032D1D8 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				EA47AD0526EBCF7C0032D1D8 /* LoginViewPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		EA47AD0926EBD1C30032D1D8 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				EA47AD0726EBD1A20032D1D8 /* NetworkService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		EAC1D4E226E3BE6900EA2E86 = {
 			isa = PBXGroup;
 			children = (
@@ -58,11 +96,11 @@
 			children = (
 				EAC1D4EE26E3BE6900EA2E86 /* AppDelegate.swift */,
 				EAC1D4F026E3BE6900EA2E86 /* SceneDelegate.swift */,
-				EAC1D4F226E3BE6900EA2E86 /* LoginViewController.swift */,
-				EAB429FD26E3D5830035FDB7 /* UserInfoViewController.swift */,
-				EAC1D4F926E3BE6B00EA2E86 /* LaunchScreen.storyboard */,
 				EAC1D4FC26E3BE6B00EA2E86 /* Info.plist */,
-				EAC1D4F726E3BE6B00EA2E86 /* Assets.xcassets */,
+				EA47AD0226EBCF350032D1D8 /* View */,
+				EA47AD0426EBCF590032D1D8 /* Presenter */,
+				EA47AD0926EBD1C30032D1D8 /* Network */,
+				EA47AD0326EBCF470032D1D8 /* Supporting Files */,
 			);
 			path = "Swifty-companion";
 			sourceTree = "<group>";
@@ -136,9 +174,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA47AD0626EBCF7C0032D1D8 /* LoginViewPresenter.swift in Sources */,
 				EAC1D4F326E3BE6900EA2E86 /* LoginViewController.swift in Sources */,
 				EAB429FE26E3D5830035FDB7 /* UserInfoViewController.swift in Sources */,
 				EAC1D4EF26E3BE6900EA2E86 /* AppDelegate.swift in Sources */,
+				EA47AD0826EBD1A20032D1D8 /* NetworkService.swift in Sources */,
 				EAC1D4F126E3BE6900EA2E86 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

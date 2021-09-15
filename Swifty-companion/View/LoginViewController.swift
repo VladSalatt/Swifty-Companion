@@ -7,14 +7,21 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+final class LoginViewController: UIViewController {
     
     private enum Constants {
         enum Assets {
             static let logo = "logo"
             static let background = "background"
         }
+        
+        enum Color {
+            static let primaryGreen = UIColor(red: 0/255, green: 255/255, blue: 177/255, alpha: 1.0)
+        }
     }
+
+    private lazy var presenter = LoginViewPresenter(with: NetworkService(),
+                                                    navigationController: self.navigationController)
     
     // MARK: - UI
     
@@ -38,7 +45,7 @@ class LoginViewController: UIViewController {
         textField.autocorrectionType = .no
         textField.placeholder = "Enter nickname"
         
-        textField.clearButtonMode = .always
+        textField.clearButtonMode = .never
         textField.returnKeyType = .search
         
         textField.borderStyle = .roundedRect
@@ -61,10 +68,11 @@ class LoginViewController: UIViewController {
         button.setTitleColor(.gray, for: .selected)
         button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
-        button.backgroundColor = .gray
-        button.alpha = 0.7
+        button.backgroundColor = Constants.Color.primaryGreen
+        button.alpha = 1.0
         button.layer.cornerRadius = 5
         
+        button.isEnabled = false
         button.addTarget(self, action: #selector(searchButtonTapped), for: .touchUpInside)
         return button
     }()
@@ -85,17 +93,21 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        configureKeyboard()
+        
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        self.navigationController?.navigationBar.isHidden = false
+        searchTextField.text = nil
+        searchButton.isEnabled = false
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     private func setupUI() {
@@ -123,15 +135,60 @@ class LoginViewController: UIViewController {
         ])
     }
     
+    func configureKeyboard() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
     // MARK: - Selectors
     
+    // call the network request
     @objc private func searchButtonTapped() {
-        let vc = UserInfoViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        guard let login = searchTextField.text else { return }
+        presenter.searchProgile(with: login)
+    }
+    
+    @objc private func dismissKeyboard() {
+        searchTextField.resignFirstResponder()
+    }
+    
+    private func configureButtonWith() {
+        guard let inputText = searchTextField.text else { return }
+        searchButton.isEnabled = !inputText.isEmpty
     }
 }
 
 // MARK: - TextField Delegate
 
 extension LoginViewController: UITextFieldDelegate {
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        configureButtonWith()
+        return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        configureButtonWith()
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        configureButtonWith()
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        configureButtonWith()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        searchButtonTapped()
+        return true
+    }
+}
+
+// MARK: - LoginView Delegate
+
+extension LoginViewController: LoginViewDelegate {
+    
 }
