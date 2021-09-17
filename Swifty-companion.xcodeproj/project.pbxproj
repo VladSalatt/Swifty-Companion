@@ -41,15 +41,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		EA47AD0226EBCF350032D1D8 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				EAC1D4F226E3BE6900EA2E86 /* LoginViewController.swift */,
-				EAB429FD26E3D5830035FDB7 /* UserInfoViewController.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		EA47AD0326EBCF470032D1D8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -59,20 +50,45 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		EA47AD0426EBCF590032D1D8 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				EA47AD0526EBCF7C0032D1D8 /* LoginViewPresenter.swift */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
 		EA47AD0926EBD1C30032D1D8 /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				EA47AD0726EBD1A20032D1D8 /* NetworkService.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		EA62253F26F242290032E92B /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				EA62254126F2428C0032E92B /* UserInfo */,
+				EA62254026F242860032E92B /* Login */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		EA62254026F242860032E92B /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				EAC1D4F226E3BE6900EA2E86 /* LoginViewController.swift */,
+				EA47AD0526EBCF7C0032D1D8 /* LoginViewPresenter.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		EA62254126F2428C0032E92B /* UserInfo */ = {
+			isa = PBXGroup;
+			children = (
+				EAB429FD26E3D5830035FDB7 /* UserInfoViewController.swift */,
+			);
+			path = UserInfo;
+			sourceTree = "<group>";
+		};
+		EA62254226F242C10032E92B /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		EAC1D4E226E3BE6900EA2E86 = {
@@ -97,9 +113,9 @@
 				EAC1D4EE26E3BE6900EA2E86 /* AppDelegate.swift */,
 				EAC1D4F026E3BE6900EA2E86 /* SceneDelegate.swift */,
 				EAC1D4FC26E3BE6B00EA2E86 /* Info.plist */,
-				EA47AD0226EBCF350032D1D8 /* View */,
-				EA47AD0426EBCF590032D1D8 /* Presenter */,
+				EA62253F26F242290032E92B /* Scenes */,
 				EA47AD0926EBD1C30032D1D8 /* Network */,
+				EA62254226F242C10032E92B /* Common */,
 				EA47AD0326EBCF470032D1D8 /* Supporting Files */,
 			);
 			path = "Swifty-companion";
