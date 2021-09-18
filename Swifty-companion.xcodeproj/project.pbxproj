@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		EA47AD0626EBCF7C0032D1D8 /* LoginViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA47AD0526EBCF7C0032D1D8 /* LoginViewPresenter.swift */; };
 		EA47AD0826EBD1A20032D1D8 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA47AD0726EBD1A20032D1D8 /* NetworkService.swift */; };
+		EA86943626F638410003DA6C /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA86943526F638410003DA6C /* NetworkConstants.swift */; };
+		EA86943926F64F780003DA6C /* UserCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA86943826F64F780003DA6C /* UserCredential.swift */; };
+		EA86943C26F659F10003DA6C /* GetTokenOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA86943B26F659F10003DA6C /* GetTokenOperation.swift */; };
+		EA86943E26F65B7F0003DA6C /* GetUserDataOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA86943D26F65B7F0003DA6C /* GetUserDataOperation.swift */; };
+		EA86944026F666160003DA6C /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA86943F26F666160003DA6C /* UserData.swift */; };
 		EAB429FE26E3D5830035FDB7 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB429FD26E3D5830035FDB7 /* UserInfoViewController.swift */; };
 		EAC1D4EF26E3BE6900EA2E86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC1D4EE26E3BE6900EA2E86 /* AppDelegate.swift */; };
 		EAC1D4F126E3BE6900EA2E86 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC1D4F026E3BE6900EA2E86 /* SceneDelegate.swift */; };
@@ -20,6 +25,11 @@
 /* Begin PBXFileReference section */
 		EA47AD0526EBCF7C0032D1D8 /* LoginViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewPresenter.swift; sourceTree = "<group>"; };
 		EA47AD0726EBD1A20032D1D8 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		EA86943526F638410003DA6C /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
+		EA86943826F64F780003DA6C /* UserCredential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCredential.swift; sourceTree = "<group>"; };
+		EA86943B26F659F10003DA6C /* GetTokenOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTokenOperation.swift; sourceTree = "<group>"; };
+		EA86943D26F65B7F0003DA6C /* GetUserDataOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserDataOperation.swift; sourceTree = "<group>"; };
+		EA86943F26F666160003DA6C /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		EAB429FD26E3D5830035FDB7 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		EAC1D4EB26E3BE6900EA2E86 /* Swifty-companion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swifty-companion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAC1D4EE26E3BE6900EA2E86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -53,7 +63,10 @@
 		EA47AD0926EBD1C30032D1D8 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				EA86943A26F659DC0003DA6C /* Operations */,
+				EA86943726F64F460003DA6C /* Models */,
 				EA47AD0726EBD1A20032D1D8 /* NetworkService.swift */,
+				EA86943526F638410003DA6C /* NetworkConstants.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -80,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				EAB429FD26E3D5830035FDB7 /* UserInfoViewController.swift */,
+				EA86944126F6661D0003DA6C /* Models */,
 			);
 			path = UserInfo;
 			sourceTree = "<group>";
@@ -89,6 +103,31 @@
 			children = (
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		EA86943726F64F460003DA6C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EA86943826F64F780003DA6C /* UserCredential.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EA86943A26F659DC0003DA6C /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				EA86943B26F659F10003DA6C /* GetTokenOperation.swift */,
+				EA86943D26F65B7F0003DA6C /* GetUserDataOperation.swift */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
+		EA86944126F6661D0003DA6C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EA86943F26F666160003DA6C /* UserData.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		EAC1D4E226E3BE6900EA2E86 = {
@@ -191,7 +230,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA47AD0626EBCF7C0032D1D8 /* LoginViewPresenter.swift in Sources */,
+				EA86943E26F65B7F0003DA6C /* GetUserDataOperation.swift in Sources */,
+				EA86943926F64F780003DA6C /* UserCredential.swift in Sources */,
 				EAC1D4F326E3BE6900EA2E86 /* LoginViewController.swift in Sources */,
+				EA86943626F638410003DA6C /* NetworkConstants.swift in Sources */,
+				EA86944026F666160003DA6C /* UserData.swift in Sources */,
+				EA86943C26F659F10003DA6C /* GetTokenOperation.swift in Sources */,
 				EAB429FE26E3D5830035FDB7 /* UserInfoViewController.swift in Sources */,
 				EAC1D4EF26E3BE6900EA2E86 /* AppDelegate.swift in Sources */,
 				EA47AD0826EBD1A20032D1D8 /* NetworkService.swift in Sources */,

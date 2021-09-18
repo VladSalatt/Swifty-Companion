@@ -8,13 +8,27 @@
 import Foundation
 
 protocol NetworkServiceProtocol {
-    func getProfile()
+//    func getProfile()
 }
 
 final class NetworkService: NetworkServiceProtocol {
-    func getProfile(completion: @escaping () -> Void) {
+
+    private var operationQueue = OperationQueue()
+        
+    func getProfileWith(_ login: String) {
+        let getTokenOperation = GetTokenOperation()
+        
+        operationQueue.addOperation(getTokenOperation)
+        getUserDataWith(login)
+    }
+
+    private func getUserDataWith(_ login: String) {
+        let getUserDataOperation = GetUserDataOperation(login)
+        
+        operationQueue.addOperation(getUserDataOperation)
+    }
+
+    private func getImageData() {
         
     }
-    
-    
 }

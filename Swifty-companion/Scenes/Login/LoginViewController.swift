@@ -94,8 +94,8 @@ final class LoginViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         configureKeyboard()
-        
-        
+        makeConstraints()
+        presenter.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -116,7 +116,6 @@ final class LoginViewController: UIViewController {
         view.addSubview(logoImageView)
         view.addSubview(textStackView)
         
-        makeConstraints()
     }
 
     private func makeConstraints() {
@@ -145,7 +144,7 @@ final class LoginViewController: UIViewController {
     // call the network request
     @objc private func searchButtonTapped() {
         guard let login = searchTextField.text else { return }
-        presenter.searchProgile(with: login)
+        presenter.searchProfile(with: login)
     }
     
     @objc private func dismissKeyboard() {
@@ -190,5 +189,12 @@ extension LoginViewController: UITextFieldDelegate {
 // MARK: - LoginView Delegate
 
 extension LoginViewController: LoginViewDelegate {
+    func showAlertWith(_ message: String) {
+        let alert = UIAlertController(title: message, message: nil, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel)
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     
 }
