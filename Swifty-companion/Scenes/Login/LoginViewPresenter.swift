@@ -8,7 +8,7 @@
 import UIKit
 
 protocol LoginViewDelegate: AnyObject {
-    func showAlertWith(_ message: String)
+    func showAlertWith(message: String)
 }
 
 final class LoginViewPresenter {
@@ -23,16 +23,19 @@ final class LoginViewPresenter {
     
     func searchProfile(with login: String) {
         
-        networkService.getProfileWith(login)
-        
-        // NSError delete or refactor
-//        delegate?.showAlertWith("error")
+        networkService.getProfileWith(login) { [weak self] userData in
+            self?.openUserInfoScreenWith(userData)
+        } failure: { [weak self] error in
+            let err = error != nil ? error as! NetworkErrors : NetworkErrors.unknown
+            self?.delegate?.showAlertWith(message: err.description)
+        }
     }
     
-    private func openUserInfoScreenWith(_ data: Data?, navigationController: UINavigationController) {
-        let vc = UserInfoViewController()
-        navigationController.pushViewController(vc, animated: true)
+    private func openUserInfoScreenWith(_ data: UserData) {
+        DispatchQueue.main.async {
+            let vc = UserInfoViewController(userData: data)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
-    
-    
 }
+

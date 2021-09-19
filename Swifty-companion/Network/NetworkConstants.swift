@@ -22,9 +22,12 @@ struct NetworkConstants {
         static let json = "application/json; charset=utf-8"
         
         static let authorization = "Authorization"
-        static let bearer = "Bearer "
+        static let bearer = "Bearer"
     }
     
+    enum UserCredential {
+        static let userCredential = "userCredential"
+    }
 }
 
 struct AppParametrs: Codable {
@@ -32,3 +35,4 @@ struct AppParametrs: Codable {
     var client_id = "13d42cf10edb8d934c364005b84419bb66fbcff2fb6212498aa5a885704b35d8"
     var client_secret = "ca3f589627e7c548a2dc177743258cfbcda947de0e357e0643537aa9a2a9731e"
 }
+

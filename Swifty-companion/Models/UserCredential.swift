@@ -21,4 +21,9 @@ struct UserCredential: Codable {
     let expiresIn: Int
     let scope: String
     let createdAt: Int
+    
+    func isExpired() -> Bool {
+        let expiredDate = Date(timeIntervalSince1970: Double(createdAt + expiresIn))
+        return Date().compare(expiredDate) == .orderedDescending
+    }
 }

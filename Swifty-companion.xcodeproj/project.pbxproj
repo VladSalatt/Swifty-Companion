@@ -20,6 +20,8 @@
 		EAC1D4F326E3BE6900EA2E86 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC1D4F226E3BE6900EA2E86 /* LoginViewController.swift */; };
 		EAC1D4F826E3BE6B00EA2E86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAC1D4F726E3BE6B00EA2E86 /* Assets.xcassets */; };
 		EAC1D4FB26E3BE6B00EA2E86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAC1D4F926E3BE6B00EA2E86 /* LaunchScreen.storyboard */; };
+		EAEFD2FF26F740490063935A /* NetworkErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEFD2FE26F740490063935A /* NetworkErrors.swift */; };
+		EAEFD30126F76E110063935A /* GetImageDataOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEFD30026F76E110063935A /* GetImageDataOperation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		EAC1D4F726E3BE6B00EA2E86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EAC1D4FA26E3BE6B00EA2E86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EAC1D4FC26E3BE6B00EA2E86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EAEFD2FE26F740490063935A /* NetworkErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrors.swift; sourceTree = "<group>"; };
+		EAEFD30026F76E110063935A /* GetImageDataOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetImageDataOperation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,9 +68,9 @@
 			isa = PBXGroup;
 			children = (
 				EA86943A26F659DC0003DA6C /* Operations */,
-				EA86943726F64F460003DA6C /* Models */,
 				EA47AD0726EBD1A20032D1D8 /* NetworkService.swift */,
 				EA86943526F638410003DA6C /* NetworkConstants.swift */,
+				EAEFD2FE26F740490063935A /* NetworkErrors.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -93,7 +97,6 @@
 			isa = PBXGroup;
 			children = (
 				EAB429FD26E3D5830035FDB7 /* UserInfoViewController.swift */,
-				EA86944126F6661D0003DA6C /* Models */,
 			);
 			path = UserInfo;
 			sourceTree = "<group>";
@@ -105,29 +108,14 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		EA86943726F64F460003DA6C /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				EA86943826F64F780003DA6C /* UserCredential.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		EA86943A26F659DC0003DA6C /* Operations */ = {
 			isa = PBXGroup;
 			children = (
 				EA86943B26F659F10003DA6C /* GetTokenOperation.swift */,
 				EA86943D26F65B7F0003DA6C /* GetUserDataOperation.swift */,
+				EAEFD30026F76E110063935A /* GetImageDataOperation.swift */,
 			);
 			path = Operations;
-			sourceTree = "<group>";
-		};
-		EA86944126F6661D0003DA6C /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				EA86943F26F666160003DA6C /* UserData.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		EAC1D4E226E3BE6900EA2E86 = {
@@ -154,10 +142,20 @@
 				EAC1D4FC26E3BE6B00EA2E86 /* Info.plist */,
 				EA62253F26F242290032E92B /* Scenes */,
 				EA47AD0926EBD1C30032D1D8 /* Network */,
+				EAEFD30226F771B50063935A /* Models */,
 				EA62254226F242C10032E92B /* Common */,
 				EA47AD0326EBCF470032D1D8 /* Supporting Files */,
 			);
 			path = "Swifty-companion";
+			sourceTree = "<group>";
+		};
+		EAEFD30226F771B50063935A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EA86943F26F666160003DA6C /* UserData.swift */,
+				EA86943826F64F780003DA6C /* UserCredential.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,7 +232,9 @@
 				EA86943926F64F780003DA6C /* UserCredential.swift in Sources */,
 				EAC1D4F326E3BE6900EA2E86 /* LoginViewController.swift in Sources */,
 				EA86943626F638410003DA6C /* NetworkConstants.swift in Sources */,
+				EAEFD2FF26F740490063935A /* NetworkErrors.swift in Sources */,
 				EA86944026F666160003DA6C /* UserData.swift in Sources */,
+				EAEFD30126F76E110063935A /* GetImageDataOperation.swift in Sources */,
 				EA86943C26F659F10003DA6C /* GetTokenOperation.swift in Sources */,
 				EAB429FE26E3D5830035FDB7 /* UserInfoViewController.swift in Sources */,
 				EAC1D4EF26E3BE6900EA2E86 /* AppDelegate.swift in Sources */,

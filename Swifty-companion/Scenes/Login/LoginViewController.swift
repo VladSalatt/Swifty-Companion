@@ -98,8 +98,11 @@ final class LoginViewController: UIViewController {
         presenter.delegate = self
     }
     
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        // Таким способом НавБар скрывается незаметно
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
@@ -107,10 +110,14 @@ final class LoginViewController: UIViewController {
         super.viewDidDisappear(animated)
         searchTextField.text = nil
         searchButton.isEnabled = false
+        // Таким способом НавБар начинает отображатсья незаметно
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
+    // MARK: - Private Methods
+    
     private func setupUI() {
+        self.title = "Search"
         view.backgroundColor = UIColor(patternImage: UIImage(named: Constants.Assets.background)!)
         
         view.addSubview(logoImageView)
@@ -189,12 +196,12 @@ extension LoginViewController: UITextFieldDelegate {
 // MARK: - LoginView Delegate
 
 extension LoginViewController: LoginViewDelegate {
-    func showAlertWith(_ message: String) {
-        let alert = UIAlertController(title: message, message: nil, preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .cancel)
-        alert.addAction(action)
-        self.present(alert, animated: true, completion: nil)
+    func showAlertWith(message: String) {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: message, message: nil, preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .cancel)
+            alert.addAction(action)
+            self.present(alert, animated: true, completion: nil)
+        }
     }
-    
-    
 }

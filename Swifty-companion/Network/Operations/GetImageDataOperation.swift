@@ -1,46 +1,31 @@
 //
-//  GetTokenOperation.swift
+//  GetImageDataOperation.swift
 //  Swifty-companion
 //
-//  Created by VKoshelev@detmir.ru on 18.09.2021.
+//  Created by VKoshelev@detmir.ru on 19.09.2021.
 //
 
 import Foundation
 
-final class GetTokenOperation: Operation {
+final class GetImageDataOperation: Operation {
     
-    private var userCredential: UserCredential?
+    private let imageUrl: String
     
-//    var userCredentialStorage: UserCredentialStorage
-    var success: ((UserCredential?) -> Void)?
+    var success: ((Data) -> Void)?
     var failure: ((Error?) -> Void)?
     
-    init(userCredential: UserCredential?) {
-        self.userCredential = userCredential
+    init(imageUrl: String) {
+        self.imageUrl = imageUrl
         super.init()
     }
-
+    
     override func main() {
-        if userCredential != nil, userCredential?.isExpired() == false {
-            self.success?(nil)
+        guard let url = URL(string: imageUrl) else {
+            failure?(NetworkErrors.invalidUrl)
             return
         }
         
-        guard let url = NetworkConstants.getAccessTokenUrl else {
-            self.failure?(NetworkErrors.invalidUrl)
-            return
-        }
-
-        let body = AppParametrs()
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = NetworkConstants.HttpMethods.post
-        request.httpBody = try? JSONEncoder().encode(body)
-        request.allHTTPHeaderFields = [
-            NetworkConstants.HttpHeader.contentType: NetworkConstants.HttpHeader.json
-        ]
-
-        URLSession.shared.dataTask(with: request) { data, response, error in
+        URLSession.shared.dataTask(with: url) { data, response, error in
             guard error == nil else {
                 self.failure?(NetworkErrors.invalidSession)
                 return
@@ -52,14 +37,11 @@ final class GetTokenOperation: Operation {
             
             switch response.statusCode {
             case 200:
-                guard let data = data,
-                      let userCredential = try? JSONDecoder().decode(UserCredential.self, from: data) else {
+                guard let imageData = data else {
                     self.failure?(NetworkErrors.invalidData)
                     return
                 }
-                
-                
-                self.success?(userCredential)
+                self.success?(imageData)
             case 400:
                 self.failure?(NetworkErrors.invalidRequest)
             case 401:
@@ -75,6 +57,7 @@ final class GetTokenOperation: Operation {
             default:
                 self.failure?(NetworkErrors.unknown)
             }
+            
         }.resume()
     }
 }
