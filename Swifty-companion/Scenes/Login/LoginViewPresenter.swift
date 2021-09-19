@@ -9,6 +9,7 @@ import UIKit
 
 protocol LoginViewDelegate: AnyObject {
     func showAlertWith(message: String)
+    var activityIndicator: UIActivityIndicatorView { get }
 }
 
 final class LoginViewPresenter {
@@ -33,6 +34,7 @@ final class LoginViewPresenter {
     
     private func openUserInfoScreenWith(_ data: UserData) {
         DispatchQueue.main.async {
+            self.delegate?.activityIndicator.stopAnimating()
             let vc = UserInfoViewController(userData: data)
             self.navigationController?.pushViewController(vc, animated: true)
         }

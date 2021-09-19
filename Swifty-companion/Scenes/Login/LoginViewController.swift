@@ -87,6 +87,15 @@ final class LoginViewController: UIViewController {
         return stack
     }()
     
+    lazy var activityIndicator: UIActivityIndicatorView = {
+        let activity = UIActivityIndicatorView()
+        activity.translatesAutoresizingMaskIntoConstraints = false
+        activity.style = .large
+        activity.color = Constants.Color.primaryGreen
+        activity.hidesWhenStopped = true
+        activity.isHidden = true
+        return activity
+    }()
     
     // MARK: - Life Cycle
     
@@ -122,7 +131,7 @@ final class LoginViewController: UIViewController {
         
         view.addSubview(logoImageView)
         view.addSubview(textStackView)
-        
+        view.addSubview(activityIndicator)
     }
 
     private func makeConstraints() {
@@ -139,6 +148,11 @@ final class LoginViewController: UIViewController {
             textStackView.heightAnchor.constraint(equalToConstant: 100),
             textStackView.widthAnchor.constraint(equalToConstant: 200)
         ])
+        
+        NSLayoutConstraint.activate([
+            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
     }
     
     func configureKeyboard() {
@@ -151,6 +165,7 @@ final class LoginViewController: UIViewController {
     // call the network request
     @objc private func searchButtonTapped() {
         guard let login = searchTextField.text else { return }
+        activityIndicator.startAnimating()
         presenter.searchProfile(with: login)
     }
     
@@ -198,6 +213,7 @@ extension LoginViewController: UITextFieldDelegate {
 extension LoginViewController: LoginViewDelegate {
     func showAlertWith(message: String) {
         DispatchQueue.main.async {
+            self.activityIndicator.stopAnimating()
             let alert = UIAlertController(title: message, message: nil, preferredStyle: .alert)
             let action = UIAlertAction(title: "OK", style: .cancel)
             alert.addAction(action)
