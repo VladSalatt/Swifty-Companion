@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA40B97B272322780073A063 /* UserInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA40B97A272322780073A063 /* UserInfoPresenter.swift */; };
 		EA47AD0626EBCF7C0032D1D8 /* LoginViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA47AD0526EBCF7C0032D1D8 /* LoginViewPresenter.swift */; };
 		EA47AD0826EBD1A20032D1D8 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA47AD0726EBD1A20032D1D8 /* NetworkService.swift */; };
+		EA73FB0D272060E90000AC12 /* SkillTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA73FB0C272060E90000AC12 /* SkillTableViewCell.swift */; };
+		EA73FB0F272061060000AC12 /* ProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA73FB0E272061060000AC12 /* ProjectTableViewCell.swift */; };
+		EA73FB112720611F0000AC12 /* DefaultHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA73FB102720611F0000AC12 /* DefaultHeaderView.swift */; };
+		EA73FB13272068040000AC12 /* UserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA73FB12272068040000AC12 /* UserInfoModel.swift */; };
 		EA86943626F638410003DA6C /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA86943526F638410003DA6C /* NetworkConstants.swift */; };
 		EA86943926F64F780003DA6C /* UserCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA86943826F64F780003DA6C /* UserCredential.swift */; };
 		EA86943C26F659F10003DA6C /* GetTokenOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA86943B26F659F10003DA6C /* GetTokenOperation.swift */; };
@@ -22,11 +27,17 @@
 		EAC1D4FB26E3BE6B00EA2E86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAC1D4F926E3BE6B00EA2E86 /* LaunchScreen.storyboard */; };
 		EAEFD2FF26F740490063935A /* NetworkErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEFD2FE26F740490063935A /* NetworkErrors.swift */; };
 		EAEFD30126F76E110063935A /* GetImageDataOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEFD30026F76E110063935A /* GetImageDataOperation.swift */; };
+		EAEFD30426F77F390063935A /* UserInfoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEFD30326F77F390063935A /* UserInfoHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EA40B97A272322780073A063 /* UserInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoPresenter.swift; sourceTree = "<group>"; };
 		EA47AD0526EBCF7C0032D1D8 /* LoginViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewPresenter.swift; sourceTree = "<group>"; };
 		EA47AD0726EBD1A20032D1D8 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		EA73FB0C272060E90000AC12 /* SkillTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillTableViewCell.swift; sourceTree = "<group>"; };
+		EA73FB0E272061060000AC12 /* ProjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTableViewCell.swift; sourceTree = "<group>"; };
+		EA73FB102720611F0000AC12 /* DefaultHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultHeaderView.swift; sourceTree = "<group>"; };
+		EA73FB12272068040000AC12 /* UserInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoModel.swift; sourceTree = "<group>"; };
 		EA86943526F638410003DA6C /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 		EA86943826F64F780003DA6C /* UserCredential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCredential.swift; sourceTree = "<group>"; };
 		EA86943B26F659F10003DA6C /* GetTokenOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTokenOperation.swift; sourceTree = "<group>"; };
@@ -42,6 +53,7 @@
 		EAC1D4FC26E3BE6B00EA2E86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EAEFD2FE26F740490063935A /* NetworkErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrors.swift; sourceTree = "<group>"; };
 		EAEFD30026F76E110063935A /* GetImageDataOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetImageDataOperation.swift; sourceTree = "<group>"; };
+		EAEFD30326F77F390063935A /* UserInfoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +109,9 @@
 			isa = PBXGroup;
 			children = (
 				EAB429FD26E3D5830035FDB7 /* UserInfoViewController.swift */,
+				EA40B97A272322780073A063 /* UserInfoPresenter.swift */,
+				EA73FB12272068040000AC12 /* UserInfoModel.swift */,
+				EAEFD30526F77F400063935A /* Views */,
 			);
 			path = UserInfo;
 			sourceTree = "<group>";
@@ -156,6 +171,17 @@
 				EA86943826F64F780003DA6C /* UserCredential.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		EAEFD30526F77F400063935A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EA73FB102720611F0000AC12 /* DefaultHeaderView.swift */,
+				EAEFD30326F77F390063935A /* UserInfoHeader.swift */,
+				EA73FB0C272060E90000AC12 /* SkillTableViewCell.swift */,
+				EA73FB0E272061060000AC12 /* ProjectTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,19 +253,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA73FB13272068040000AC12 /* UserInfoModel.swift in Sources */,
 				EA47AD0626EBCF7C0032D1D8 /* LoginViewPresenter.swift in Sources */,
+				EAEFD30426F77F390063935A /* UserInfoHeader.swift in Sources */,
 				EA86943E26F65B7F0003DA6C /* GetUserDataOperation.swift in Sources */,
 				EA86943926F64F780003DA6C /* UserCredential.swift in Sources */,
 				EAC1D4F326E3BE6900EA2E86 /* LoginViewController.swift in Sources */,
 				EA86943626F638410003DA6C /* NetworkConstants.swift in Sources */,
+				EA73FB0D272060E90000AC12 /* SkillTableViewCell.swift in Sources */,
 				EAEFD2FF26F740490063935A /* NetworkErrors.swift in Sources */,
 				EA86944026F666160003DA6C /* UserData.swift in Sources */,
 				EAEFD30126F76E110063935A /* GetImageDataOperation.swift in Sources */,
+				EA73FB112720611F0000AC12 /* DefaultHeaderView.swift in Sources */,
 				EA86943C26F659F10003DA6C /* GetTokenOperation.swift in Sources */,
 				EAB429FE26E3D5830035FDB7 /* UserInfoViewController.swift in Sources */,
 				EAC1D4EF26E3BE6900EA2E86 /* AppDelegate.swift in Sources */,
 				EA47AD0826EBD1A20032D1D8 /* NetworkService.swift in Sources */,
 				EAC1D4F126E3BE6900EA2E86 /* SceneDelegate.swift in Sources */,
+				EA40B97B272322780073A063 /* UserInfoPresenter.swift in Sources */,
+				EA73FB0F272061060000AC12 /* ProjectTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,6 +413,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QKTHPR44C2;
 				INFOPLIST_FILE = "Swifty-companion/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -400,6 +433,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QKTHPR44C2;
 				INFOPLIST_FILE = "Swifty-companion/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

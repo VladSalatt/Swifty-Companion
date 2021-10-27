@@ -11,7 +11,6 @@ final class GetTokenOperation: Operation {
     
     private var userCredential: UserCredential?
     
-//    var userCredentialStorage: UserCredentialStorage
     var success: ((UserCredential?) -> Void)?
     var failure: ((Error?) -> Void)?
     

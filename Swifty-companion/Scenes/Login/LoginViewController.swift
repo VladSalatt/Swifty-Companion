@@ -7,18 +7,18 @@
 
 import UIKit
 
-final class LoginViewController: UIViewController {
-    
-    private enum Constants {
-        enum Assets {
-            static let logo = "logo"
-            static let background = "background"
-        }
-        
-        enum Color {
-            static let primaryGreen = UIColor(red: 0/255, green: 255/255, blue: 177/255, alpha: 1.0)
-        }
+extension UIColor {
+    static let primaryGreen = UIColor(red: 0/255, green: 255/255, blue: 177/255, alpha: 1.0)
+}
+
+enum Constants {
+    enum Assets {
+        static let logo = "logo"
+        static let background = "background"
     }
+}
+
+final class LoginViewController: UIViewController {
 
     private lazy var presenter = LoginViewPresenter(with: NetworkService(),
                                                     navigationController: self.navigationController)
@@ -68,7 +68,7 @@ final class LoginViewController: UIViewController {
         button.setTitleColor(.gray, for: .selected)
         button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
-        button.backgroundColor = Constants.Color.primaryGreen
+        button.backgroundColor = .primaryGreen
         button.alpha = 1.0
         button.layer.cornerRadius = 5
         
@@ -91,7 +91,7 @@ final class LoginViewController: UIViewController {
         let activity = UIActivityIndicatorView()
         activity.translatesAutoresizingMaskIntoConstraints = false
         activity.style = .large
-        activity.color = Constants.Color.primaryGreen
+        activity.color = .primaryGreen
         activity.hidesWhenStopped = true
         activity.isHidden = true
         return activity
@@ -128,6 +128,7 @@ final class LoginViewController: UIViewController {
     private func setupUI() {
         self.title = "Search"
         view.backgroundColor = UIColor(patternImage: UIImage(named: Constants.Assets.background)!)
+        navigationController?.navigationBar.barStyle = .black
         
         view.addSubview(logoImageView)
         view.addSubview(textStackView)

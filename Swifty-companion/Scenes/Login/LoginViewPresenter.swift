@@ -15,7 +15,7 @@ protocol LoginViewDelegate: AnyObject {
 final class LoginViewPresenter {
     private let networkService: NetworkService
     private let navigationController: UINavigationController?
-    var delegate: LoginViewDelegate?
+    weak var delegate: LoginViewDelegate?
     
     init(with networkService: NetworkService, navigationController: UINavigationController?) {
         self.networkService = networkService
@@ -23,7 +23,6 @@ final class LoginViewPresenter {
     }
     
     func searchProfile(with login: String) {
-        
         networkService.getProfileWith(login) { [weak self] userData in
             self?.openUserInfoScreenWith(userData)
         } failure: { [weak self] error in
